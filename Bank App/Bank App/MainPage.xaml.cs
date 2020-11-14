@@ -48,7 +48,7 @@ namespace Bank_App
 
         private void DisplayTransationsButton_Clicked(object sender, EventArgs e)
         {
-            Navigation.PushAsync(new TransationsPage());
+            Navigation.PushAsync(new TransationsPage(_account));
 
             //DisplayTransactionsLabel.Text = _account.GetTransactionsHistory(); 
         }

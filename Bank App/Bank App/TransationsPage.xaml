@@ -4,9 +4,27 @@
              x:Class="Bank_App.TransationsPage">
     <ContentPage.Content>
         <StackLayout>
-            <Label Text="Welcome to Xamarin.Forms!"
-                VerticalOptions="CenterAndExpand" 
-                HorizontalOptions="CenterAndExpand" />
+
+            <ListView ItemsSource="{Binding Transactions}">
+                     <ListView.ItemTemplate>
+                        <DataTemplate>
+                            <ViewCell>
+                            <Grid>
+                                <Grid.RowDefinitions>
+                                    <RowDefinition Height="Auto"/>
+                                </Grid.RowDefinitions>
+                                <Grid.ColumnDefinitions>
+                                    <ColumnDefinition Width="*">
+                                </ColumnDefinition>
+                                </Grid.ColumnDefinitions>
+                                <Label TextColor="Black" Grid.Column="0" Grid.Row="0" Text="{Binding Description}" />
+                                <Label TextColor="Black" Grid.Column="0" Grid.Row="0" Text="{Binding Amount}" />
+                                <Label TextColor="Black" Grid.Column="0" Grid.Row="0" Text="{Binding Date}" />
+                            </Grid>
+                            </ViewCell>
+                        </DataTemplate>
+                     </ListView.ItemTemplate>
+                </ListView>
         </StackLayout>
     </ContentPage.Content>
 </ContentPage>
