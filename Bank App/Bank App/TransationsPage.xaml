@@ -4,8 +4,12 @@
              x:Class="Bank_App.TransationsPage">
     <ContentPage.Content>
         <StackLayout>
+            <StackLayout>
+                <Label Text=" Balance" FontSize="Large"/>
+                <Label Text="{Binding Balance}"/>
+            </StackLayout>
 
-            <ListView ItemsSource="{Binding Transactions}">
+            <ListView ItemsSource="{Binding Transactions}" HasUnevenRows="True">
                      <ListView.ItemTemplate>
                         <DataTemplate>
                             <ViewCell>
@@ -17,9 +21,10 @@
                                     <ColumnDefinition Width="*">
                                 </ColumnDefinition>
                                 </Grid.ColumnDefinitions>
-                                <Label TextColor="Black" Grid.Column="0" Grid.Row="0" Text="{Binding Description}" />
-                                <Label TextColor="Black" Grid.Column="0" Grid.Row="0" Text="{Binding Amount}" />
-                                <Label TextColor="Black" Grid.Column="0" Grid.Row="0" Text="{Binding Date}" />
+                                <Label FontAttributes="Bold" TextColor="Black" Grid.Column="0" Grid.Row="0" Text="{Binding Description}" />
+                                <Label FontAttributes="Bold" TextColor="Black" Grid.Column="1" Grid.Row="0" Text="{Binding Amount}" />
+                                <Label FontAttributes="Bold" TextColor="Black" Grid.Column="2" Grid.Row="0" Text="{Binding TransactionDate}" />
+                                <Label FontAttributes="Bold" TextColor="Black" Text="Amount" Grid.Column="1" Grid.Row="0"/>
                             </Grid>
                             </ViewCell>
                         </DataTemplate>

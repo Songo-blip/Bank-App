@@ -21,13 +21,13 @@ namespace Bank_App
             set { Account = value;}
         }
 
-        public TransationsPage(BankAccount account)
+        public TransationsPage(BankAccount _account)
         {
             InitializeComponent();
 
             Title = "View Transactions";
-            Account = account;
-            BindingContext = Account; 
+            Account = _account;
+            BindingContext =Account; 
         }
     }
 }
