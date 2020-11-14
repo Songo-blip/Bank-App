@@ -5,17 +5,16 @@
         <Frame BackgroundColor="#2196F3" Padding="24" CornerRadius="0">
             <Label Text="FNB" HorizontalTextAlignment="Center" TextColor="White" FontSize="36"/>
         </Frame>
-        <Entry x:Name="EnterAmountDeposit" Placeholder="Enter Amount"/>
+        <Entry x:Name="EnterAmountDeposit" Placeholder="Enter Amount" Keyboard="Numeric"/>
         <Entry x:Name="EnterDepositReason" Placeholder=" Enter Reason" />
         <Button Text="Deposit" Clicked="DepositButton_Clicked"/>
         
-        <Entry x:Name="EnterWithdrawAmount" Placeholder="Enter Amount" />
+        <Entry x:Name="EnterWithdrawAmount" Placeholder="Enter Amount" Keyboard="Numeric"/>
         <Entry x:Name="EnterwithdrawReason" Placeholder=" Enter Reason" />
         <Button Text="withdraw" Clicked="WithdrawButton_Clicked"/>
 
-        <Button x:Name="TransationHistory" Text="Transation history"/>
-        
-
-    </StackLayout>
+        <Button x:Name="DisplayTransationsButton" Text="Display Transations" Clicked="DisplayTransationsButton_Clicked"/>
+        <Label x:Name="DisplayTransactionsLabel"/>
+   </StackLayout>
 
 </ContentPage>

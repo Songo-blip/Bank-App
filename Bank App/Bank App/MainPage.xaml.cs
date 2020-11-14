@@ -11,11 +11,12 @@ namespace Bank_App
 {
     public partial class MainPage : ContentPage
     {
-        private BankAccount _account ;
+        private BankAccount _account;
 
         public MainPage()
         {
             InitializeComponent();
+
             Bank fnb = new Bank("First National Bank", 4324, "Kenilworth");
             Customer myNewCustomer = new Customer("7766445424", "10 me at home", "Bob", "The Builder");
             fnb.AddCustomer(myNewCustomer);
@@ -31,7 +32,8 @@ namespace Bank_App
             var valid = decimal.TryParse(EnterAmountDeposit.Text, out AmountDeposit);
             var reason = EnterDepositReason.Text;
             if (valid)
-            _account.DepositMoney(AmountDeposit, DateTime.Now, "Stipend");
+                _account.DepositMoney(AmountDeposit, DateTime.Now,reason);
+
         }
 
         private void WithdrawButton_Clicked(object sender, EventArgs e)
@@ -40,8 +42,15 @@ namespace Bank_App
             var valid = decimal.TryParse(EnterWithdrawAmount.Text, out AmountWithdrawal);
             var reason = EnterwithdrawReason.Text;
             if (valid)
-            _account.DepositMoney(AmountWithdrawal, DateTime.Now, "Stipend");
+            _account.DepositMoney(AmountWithdrawal, DateTime.Now, reason);
 
+        }
+
+        private void DisplayTransationsButton_Clicked(object sender, EventArgs e)
+        {
+            Navigation.PushAsync(new TransationsPage());
+
+            //DisplayTransactionsLabel.Text = _account.GetTransactionsHistory(); 
         }
     }
 }
