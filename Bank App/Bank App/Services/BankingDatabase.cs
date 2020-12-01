@@ -10,7 +10,7 @@ namespace Bank_App.Services
         private SQLiteConnection
          public BankingDataBase()
 
-        {
+         {
             var path = GetDbPath()
 
 
@@ -24,50 +24,47 @@ namespace Bank_App.Services
          }
 
 
-
-
-
-        public seedDataBase
+        public void seedDataBase()
         {
-          if  (_database.Table<Banking>() Count() == 0)
+             if  (_database.Table<Banking>() Count() == 0)
             {
 
-        Bank fnb = new Bank("First National Bank", 4324, "Kenilworth");
-        Customer myNewCustomer = new Customer("7766445424", "10 me at home", "Bob", "The Builder");
-        fnb.AddCustomer(myNewCustomer);
+                 Bank fnb = new Bank("First National Bank", 4324, "Kenilworth");
+                Customer myNewCustomer = new Customer("7766445424", "10 me at home", "Bob", "The Builder");
+                 fnb.AddCustomer(myNewCustomer);
 
-        _database.Insert(myNewCustomer);
-        _database.Insert(fnb);
+                _database.Insert(myNewCustomer);
+                 _database.Insert(fnb);
        
-         _database.UpdateWithChildren(fnb);
+                _database.UpdateWithChildren(fnb);
 
-        var account = myNewCustomer.ApplyForBankAccount();
-        _database.Insert(account);
-        _database.Insert(myNewCustomer);
+                 var account = myNewCustomer.ApplyForBankAccount();
+                 _database.Insert(account);
+                _database.Insert(myNewCustomer);
             }
 
         }
 
-        public Customer GetCustomerByIdNumber(string saIdNumber)
-        {
-        return _database.Table<Customer>().Where(X => IdNumber == saIdNumber).FirstorDefault();
-         }
+                 public Customer GetCustomerByIdNumber(string saIdNumber)
+                {
+                 return _database.Table<Customer>().Where(X => IdNumber == saIdNumber).FirstorDefault();
+                 }
 
-    public List<Transation> GetTransactions(BankAccount account)
-    { 
+             public List<Transation> GetTransactions(BankAccount account)
+             { 
 
-    return _database.Table<Transation> ().Where (X=> X.BankAccountId== account.BankAccountId).ToList();
-    }
+             return _database.Table<Transation> ().Where (X=> X.BankAccountId== account.BankAccountId).ToList();
+             }
 
-    public List<Transation> GetCurrentAccount(BankAccount account)
-    {
+            public List<Transation> GetCurrentAccount(BankAccount account)
+           {
 
-    return _database.Table<Transation>().Where(X => X.BankAccountId == account.BankAccountId).ToList();
-    }
-public void saveTransaction (bankAccount account, Transaction trans)
-{
-    _database.Insert(Trans);
-    _database.updateWithChildren
-}
+                 return _database.Table<Transation>().Where(X => X.BankAccountId == account.BankAccountId).ToList();
+           }
+            public void saveTransaction (bankAccount account, Transaction trans)
+             {
+             _database.Insert(Trans);
+            _database.updateWithChildren
+             }
     }
 }
