@@ -13,16 +13,29 @@ namespace Bank_App
     {
         private BankAccount _account;
 
+        private BankingDataBase_database;
+
+        public MainPage(BankAccount account)
+        {
+            _account = account;
+        }
+
         public MainPage()
         {
             InitializeComponent();
 
-            Bank fnb = new Bank("First National Bank", 4324, "Kenilworth");
-            Customer myNewCustomer = new Customer("7766445424", "10 me at home", "Bob", "The Builder");
-            fnb.AddCustomer(myNewCustomer);
+            _bankingDatabase = new BankingDatabase();
 
-            BankAccount _account = myNewCustomer.ApplyForBankAccount();
-            
+
+        }
+
+        protected override void OnAppearing()
+
+        {
+            base.OnAppearing();
+
+            _Customer = bankingDatabase.GetCustomer(_Customer);
+               
         }
 
         private void DepositButton_Clicked(object sender, EventArgs e)
@@ -30,19 +43,18 @@ namespace Bank_App
         {
             decimal AmountDeposit = 0;
             var valid = decimal.TryParse(EnterAmountDeposit.Text, out AmountDeposit);
-            var reason = EnterDepositReason.Text;
-            if (valid)
-                _account.DepositMoney(AmountDeposit, DateTime.Now,reason);
-
+            var Enterreason = EnterDepositReason.Text;
+           // if (valid)
+                _account.DepositMoney(AmountDeposit, DateTime.Now, Enterreason);
         }
-
+      
         private void WithdrawButton_Clicked(object sender, EventArgs e)
         {
             decimal AmountWithdrawal = 0;
             var valid = decimal.TryParse(EnterWithdrawAmount.Text, out AmountWithdrawal);
-            var reason = EnterwithdrawReason.Text;
-            if (valid)
-            _account.DepositMoney(AmountWithdrawal, DateTime.Now, reason);
+            var Enterreason = EnterwithdrawReason.Text;
+            //if (valid)
+            _account.DepositMoney(AmountWithdrawal, DateTime.Now, Enterreason);
 
         }
 

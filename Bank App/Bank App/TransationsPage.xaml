@@ -8,7 +8,6 @@
                 <Label Text=" Balance" FontSize="Large"/>
                 <Label Text="{Binding Balance}"/>
             </StackLayout>
-
             <ListView ItemsSource="{Binding Transactions}" HasUnevenRows="True">
                      <ListView.ItemTemplate>
                         <DataTemplate>

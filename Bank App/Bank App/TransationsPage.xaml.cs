@@ -13,7 +13,7 @@ namespace Bank_App
     [XamlCompilation(XamlCompilationOptions.Compile)]
     public partial class TransationsPage : ContentPage
     {
-        private BankAccount _account;
+        public BankAccount _account;
 
         public BankAccount Account
         {
