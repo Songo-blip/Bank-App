@@ -34,7 +34,9 @@ namespace Bank_App
         {
             base.OnAppearing();
 
-            _Customer = bankingDatabase.GetCustomer(_Customer);
+            _Customer = BankingDatabase.getCustomerByIdNumber("7766445424");
+
+            _Account = bankingDatabase.GetCustomer(_Customer);
                
         }
 
@@ -60,6 +62,7 @@ namespace Bank_App
 
         private void DisplayTransationsButton_Clicked(object sender, EventArgs e)
         {
+
             Navigation.PushAsync(new TransationsPage(_account));
 
             //DisplayTransactionsLabel.Text = _account.GetTransactionsHistory(); 

@@ -47,7 +47,10 @@ namespace Bank_App.Services
 
                  public Customer GetCustomerByIdNumber(string saIdNumber)
                 {
-                 return _database.Table<Customer>().Where(X => IdNumber == saIdNumber).FirstorDefault();
+            var Customer _database.Table<Customer>()..Where(X => IdNumber == saIdNumber).FirstorDefault();
+            if
+
+            return _database.Table<Customer>().Where(X => IdNumber == saIdNumber).FirstorDefault();
                  }
 
              public List<Transation> GetTransactions(BankAccount account)
